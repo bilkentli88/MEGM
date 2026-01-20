@@ -107,4 +107,4 @@ If you use this code or framework, please cite:
 
 ## 📧 Contact
 For questions or issues, please open an issue or contact the corresponding author:
-**Aykut Altan** - [aykut.altan@nisantasi.edu.tr](mailto:aykut.altan@nisantasi.edu.tr)
+**Aykut Altan** - [aykuttaltay@gmail.com](mailto:aykuttaltay@gmail.com)
