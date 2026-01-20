@@ -37,3 +37,74 @@ MEGM/
 ├── data_mitbih/              # Folder for MIT-BIH dataset (auto-downloaded)
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This file
+```
+
+---
+
+## ⚡ Quick Start
+
+### 1. Installation
+Clone the repository and install dependencies:
+```bash
+git clone [https://github.com/bilkentli88/MEGM.git](https://github.com/bilkentli88/MEGM.git)
+cd MEGM
+pip install -r requirements.txt
+```
+
+### 2. Run the Main Clinical Experiment (Experiment III)
+This script reproduces the core results of the paper (Table 4). It downloads the MIT-BIH dataset, trains TimeGAN and LSTM-VAE models, computes the six trust metrics, and prints the comparison table.
+```bash
+python src/mitbih_multi_class_colabNew.py
+```
+* **Runtime:** Approx. about 30-45 minutes (depending on GPU).
+* **Output:** Training logs and the final "Trust Profile" comparison table.
+
+### 3. Run Controlled Proxy Experiments
+To verify metric sensitivity using synthetic data (Experiment I) or images (Experiment II):
+```bash
+python src/trust_profile_experiment_time_series.py   # Experiment I (Sine Waves)
+python src/trust_profile_experiments_image.py        # Experiment II (Fashion-MNIST)
+```
+
+### 4. Generate Figures
+To reproduce the high-quality figures used in the manuscript:
+```bash
+python src/drawFigure4.py   # Generates the Radar Chart (Figure 4)
+python src/drawFigure1.py   # Generates the Framework Overview
+python src/drawFigure2.py   # Generates the Taxonomy Diagram
+python src/drawFigure3.py   # Generates the Protocol Pipeline
+```
+
+---
+
+## 📊 Main Results (The "Illusion of Fidelity")
+
+The framework reveals that while Adversarial and Variational models may achieve identical **Fidelity**, they exhibit fundamentally different risk profiles.
+
+| Metric | TimeGAN (Adversarial) | LSTM-VAE (Variational) |
+| :--- | :---: | :---: |
+| **Fidelity** (Lower is better) | **1.396** | **1.383** (Identical) |
+| **Safety** (% Valid Signals) | 32.0% | **88.5%** |
+| **Robustness** (MSE) | 5.9e-2 | **3.0e-3** |
+| **Diversity** | **17.17** | 10.33 |
+
+> **Key Insight:** TimeGAN acts as a "Risk-Seeker" (High Diversity, Low Safety), while LSTM-VAE acts as a "Risk-Avoider" (High Safety, Low Diversity). Scalar metrics like FID hide this trade-off.
+
+---
+
+## 📜 Citation
+If you use this code or framework, please cite:
+
+```bibtex
+@article{Altay2026BeyondFidelity,
+  title={Beyond Fidelity: A Trust-Oriented Framework for Evaluating Generative Models},
+  author={Altay, Aykut T.},
+  journal={Engineering Applications of Artificial Intelligence},
+  year={2026},
+  note={Under Review}
+}
+```
+
+## 📧 Contact
+For questions or issues, please open an issue or contact the corresponding author:
+**Aykut Altan** - [aykut.altan@nisantasi.edu.tr](mailto:aykut.altan@nisantasi.edu.tr)
