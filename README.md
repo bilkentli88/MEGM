@@ -8,6 +8,7 @@ This repository contains the official implementation of the paper **"Beyond Fide
 
 It introduces a comprehensive framework for evaluating generative models beyond scalar metrics (like FID), focusing on **Reliability**, **Safety**, and **Trustworthiness**. The repository includes code to reproduce the "Illusion of Fidelity" experiments comparing Adversarial (TimeGAN) and Variational (LSTM-VAE) architectures.
 
+![Trust Profile Radar Chart](Figure4_TrustProfile.png)
 > **Figure 4:** The Trust Profile reveals that while TimeGAN and LSTM-VAE have identical Fidelity, they exhibit opposite Safety and Robustness characteristics.
 
 ## 🚀 Key Features
@@ -22,3 +23,17 @@ It introduces a comprehensive framework for evaluating generative models beyond 
 ---
 
 ## 📂 Repository Structure
+
+```text
+MEGM/
+├── src/
+│   ├── mitbih_multi_class_colabNew.py       # MAIN SCRIPT: Experiment III (TimeGAN vs LSTM-VAE)
+│   ├── trust_profile_experiment_time_series.py  # Experiment I: Synthetic Sine Waves
+│   ├── trust_profile_experiments_image.py       # Experiment II: Fashion-MNIST
+│   ├── drawFigure1.py        # Framework Overview Diagram
+│   ├── drawFigure2.py        # Metric Taxonomy Diagram
+│   ├── drawFigure3.py        # Protocol Pipeline Diagram
+│   └── drawFigure4.py        # Trust Profile Radar Chart (Figure 4)
+├── data_mitbih/              # Folder for MIT-BIH dataset (auto-downloaded)
+├── requirements.txt          # Python dependencies
+└── README.md                 # This file
